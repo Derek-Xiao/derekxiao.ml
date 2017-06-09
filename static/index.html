@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/img/favicon.ico">
+    <title>Hi, I'm Derek Xiao</title>
+    <!--<link href="/static/css/reset.min.css" rel="stylesheet">-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css" media="screen,projection"/>
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/font.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/papers.css" rel="stylesheet">
+    <link href="/static/css/timeline.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col s4 l3 side-bar">
+                <div class="card">
+                    <div class="card-content">
+                        <p class="heading font-liberator smaller text-lighten-3">Derek Xiao</p>
+                    </div>
+                    <div id="one-word" class="sub-heading font-liberator">
+                        Visual Analytics
+                    </div>
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div id="intro-section" class="collapsible-header entry"><i class="material-icons">perm_identity</i>Intro</div>
+                        </li>
+                        <li>
+                            <div id="resume-section" class="collapsible-header entry"><i class="material-icons">business</i>Resume</div>
+                        </li>
+                        <li>
+                            <div id="blog-section" class="collapsible-header entry"><i class="material-icons">speaker_notes</i>Blog</div>
+                        </li>
+                        <li>
+                            <div id="publication-section" class="collapsible-header entry"><i class="material-icons">reorder</i>Publication</div>
+                        </li>
+                        <li class="">
+                            <div class="collapsible-header contacts">
+                                <img class="contact-glyph" src="/static/img/email.png"/>
+                                <img class="contact-glyph" src="/static/img/github.png"/>
+                                <img class="contact-glyph" src="/static/img/linkedin.png"/>
+                                <img class="contact-glyph" src="/static/img/wechat.png"/>
+                                <img class="contact-glyph" src="/static/img/zhihu.png"/>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="card-action">
+                        <div class="btn grit">Links</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s8 l9 main-content">
+                <div class="row">
+                    <div class="col s2 offset-s5">
+                        <div class="card-circle-image">
+                            <img alt src="/static/img/avatar-me.jpg" class="img-circle z-depth-1">
+                            <!--<span class="card-title">Card Title</span>-->
+                        </div>
+                    </div>
+                </div>
+                <div id="intro" class="row">
+                    <div class="row">
+                <span class="center heading font-liberator grey-text">
+                    Derek Xiao
+                </span>
+                    </div>
+                    <div class="row">
+                        <div class="col s11 offset-s1 banner l10 offset-l1">
+                            <div class="center grey-text">
+                                I am a PhD candidate for Information Visualization and Visual Analytics in Tsinghua University.
+                            </div>
+                            <div class="center grey-text">
+                                Integrating human vision and the power of technology to reveal the intrinsic of data.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="resume" class="papers"></div>
+                </div>
+                <div class="row">
+                    <div id="blog-list" class="papers"></div>
+                </div>
+                <div class="row">
+                    <div id="blog-post" class="papers"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<h3 class="heading grit">-->
+        <!--Saving the Shark that Bit Me-->
+    <!--</h3>-->
+
+    <!--<a href="#" class="btn grit">-->
+        <!--Keep Hope Alive-->
+    <!--</a>-->
+</div>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Derek's Homepage</h5>
+                <p class="grey-text text-lighten-4">Under Constructing ...</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">External Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3 external-link" href="http://bowei.me" target="_blank">bowei.me</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2014 Copyright Derek Xiao
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+        </div>
+    </div>
+</footer>
+<div id="temlate-container" class="hiddendiv">
+    <script id="blog-thumb-template" type="text/template" data-template="listitem">
+        <div class="row blog-thumb">
+            <h5><%= title %></h5>
+            <p>
+                <%= datetime %>
+            </p>
+            <div class="blog-content">
+                <%= content %>
+            </div>
+        </div>
+    </script>
+    <script id="timeline-item-template" type="text/template" data-template="timeline-item">
+        <div class="timeline-item" date-is="<%= date %>">
+            <div class="timeline-title"><%= title %></div>
+            <div class="timeline-description"><%= description %></div>
+        </div>
+    </script>
+</div>
+</body>
+<script src="/static/js/jquery-2.1.3.min.js"></script>
+<script src="/static/js/underscore-min.js"></script>
+<script src="/static/js/d3.v3.min.js"></script>
+<script src="/static/js/marked.min.js"></script>
+<script src="/static/js/helper.js"></script>
+<script src="/static/js/request_dag.js"></script>
+
+<script src="/static/js/config.js"></script>
+<script src="/static/js/handlers.js"></script>
+<script src="/static/js/hooks.js"></script>
+<script src="/static/js/main.js"></script>
+</html>

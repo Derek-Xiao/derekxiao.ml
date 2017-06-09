@@ -1,0 +1,39 @@
+/*
+ * borrowed from https://twitter.com/craigbuckler
+ * original link: http://cssdeck.com/labs/shuffled-paper
+*/
+
+.papers, .papers:before, .papers:after
+{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 25px rgba(0,0,0,0.1), 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.papers
+{
+    position: relative;
+    padding: 2em;
+    margin: 50px auto;
+}
+
+.papers:before, .papers:after
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotateZ(2.0deg);
+    -o-transform: rotate(2.0deg);
+    transform: rotateZ(2.0deg);
+    z-index: -1;
+}
+
+.papers:after
+{
+    -webkit-transform: rotateZ(-2.1deg);
+    -o-transform: rotate(-2.1deg);
+    transform: rotateZ(-2.1deg);
+}
