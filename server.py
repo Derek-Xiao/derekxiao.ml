@@ -8,9 +8,11 @@ import math
 
 app = Flask(__name__, static_url_path="/static")
 
+
 @app.route('/')
 def index():
     return send_file("static/index.html")
+
 
 @app.route('/get/blog')
 def get_blog():
@@ -29,28 +31,33 @@ def get_blog():
     else:
         return jsonify(result)
 
+
 @app.route('/get/blog-list')
 def get_blog_list():
-	blog_root = join("data", "blog")
-	files = listdir(blog_root)
-	return "\n".join([f for f in files if isfile(join(blog_root, f))])
+    blog_root = join("data", "blog")
+    files = listdir(blog_root)
+    return "\n".join([f for f in files if isfile(join(blog_root, f))])
+
 
 @app.route('/get/cv')
 def get_cv():
-	r = []
-	with open(join(*["data", "intro", "cv.txt"])) as cv_file:
-		for line in cv_file:
-			if len(line) == 0:
-				continue
-			ts = line.replace("\n", "").replace("\r", "").split("|")
-			p = {}
-			p["date"] = ts[0]
-			p["title"] = ts[1]
-			p["description"] = ""
-			if len(ts) > 2:
-				p["description"] = ts[2]
-			r.append(p)
-		return jsonify(r)
+    r = []
+    with open(join(*["data", "intro", "cv.txt"]), "rb") as cv_file:
+        content = cv_file.readlines()
+        for line in content:
+            if len(line) == 0:
+                continue
+            line = line.decode("UTF-8")
+            line = line.replace("\n", "").replace("\r", "")
+            ts = line.split("|")
+            p = {}
+            p["date"] = ts[0]
+            p["title"] = ts[1]
+            p["description"] = ""
+            if len(ts) > 2:
+                p["description"] = ts[2]
+            r.append(p)
+        return jsonify(r)
 
 
 if __name__ == '__main__':
